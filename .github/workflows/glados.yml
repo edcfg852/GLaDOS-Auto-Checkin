@@ -11,7 +11,7 @@ jobs:
     name: GLaDOS 签到
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: github.event_name != 'schedule' || github.event.schedule != '0 0 1 * *'
+    if: github.event_name != 'schedule' || github.event.schedule != '23 0 1 * *'
     concurrency:
       group: glados-checkin
       cancel-in-progress: false
@@ -54,7 +54,7 @@ jobs:
 
   keepalive:
     name: 每月空提交保活
-    if: github.event_name == 'schedule' && github.event.schedule == '0 0 1 * *'
+    if: github.event_name == 'schedule' && github.event.schedule == '23 0 1 * *'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     concurrency:
